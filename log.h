@@ -1,3 +1,5 @@
+using namespace std;
+
 #ifndef LOG
 #define LOG
 
@@ -7,8 +9,6 @@
 #include <ctime>
 #include <iomanip>
 #include <string>
-
-using namespace std;
 
 // Logger class handles optional logging to file with timestamps
 class Logger 
