@@ -20,7 +20,7 @@ Windows:
 ```bash
 your_program.exe /log
 ```
-Linux/Macos
+Linux/Macos:
 ```bash
 ./your_program --log
 ```
