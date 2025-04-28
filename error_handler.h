@@ -60,7 +60,7 @@ public:
         default:
             // Unknown error fallback
             cerr << "An unknown error occurred.\n";
-            log_message = "An unkown error occurred.";
+            log_message = "An unknown error occurred.";
             break;
 
         case error_types::error_one:
