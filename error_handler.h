@@ -1,7 +1,7 @@
 using namespace std;
 
-#ifndef ERROR_HANDLER
-#define ERROR_HANDLER
+#ifndef ERROR_HANDLER_H
+#define ERROR_HANDLER_H
 
 #include <cstdlib>
 #include <fstream>
