@@ -13,6 +13,34 @@ using namespace std;
 // Logger class handles optional logging to file with timestamps
 class Logger 
 {
+
+private:
+
+    bool enabled = false;
+    mutable ofstream logFile;
+
+    // Open a log file named with current date-time
+    void open_log_file() 
+    {
+        time_t now = time(nullptr);
+        tm* tm_info = localtime(&now);
+
+        ostringstream filename;
+        filename << "log_" << put_time(tm_info, "%Y-%m-%d_%H-%M-%S") << ".txt";
+
+        logFile.open(filename.str(), ios::out); // use ios::app if you want to keep appending
+    }
+
+    const static string current_time_stamp() 
+    {
+        time_t now = time(nullptr);
+        tm* tm_info = localtime(&now);
+
+        ostringstream ss;
+        ss << put_time(tm_info, "%Y-%m-%d %H:%M:%S");
+        return ss.str();
+    }
+
 public:
 
     bool is_windows()
@@ -59,32 +87,7 @@ public:
         }
     }
 
-private:
 
-    bool enabled = false;
-    mutable ofstream logFile;
-
-    // Open a log file named with current date-time
-    void open_log_file() 
-    {
-        time_t now = time(nullptr);
-        tm* tm_info = localtime(&now);
-
-        ostringstream filename;
-        filename << "log_" << put_time(tm_info, "%Y-%m-%d_%H-%M-%S") << ".txt";
-
-        logFile.open(filename.str(), ios::out); // use ios::app if you want to keep appending
-    }
-
-    const static string current_time_stamp() 
-    {
-        time_t now = time(nullptr);
-        tm* tm_info = localtime(&now);
-
-        ostringstream ss;
-        ss << put_time(tm_info, "%Y-%m-%d %H:%M:%S");
-        return ss.str();
-    }
 };
 
 // External logger instance (defined in a separate .cpp file)
